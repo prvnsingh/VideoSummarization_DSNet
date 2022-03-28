@@ -20,7 +20,7 @@ class DSNet(nn.Module):
         self.layer_norm = nn.LayerNorm(num_feature)
         self.fc1 = nn.Sequential(
             nn.Linear(num_feature, num_hidden),
-            nn.Tanh(),
+            nn.LeakyReLU(),
             nn.Dropout(0.5),
             nn.LayerNorm(num_hidden)
         )
