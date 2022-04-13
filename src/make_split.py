@@ -49,9 +49,9 @@ def main():
                         help='Random selection or cross validation')
     args = parser.parse_args()
 
-    dataset = h5py.File(args.dataset, 'r')
-    keys = list(dataset.keys())
-    keys = [str(Path(args.dataset) / key) for key in keys]
+    dataset = h5py.File(args.dataset, 'r')  # reading the h5py.file
+    keys = list(dataset.keys())  # getting h5 groups (number of videos)
+    keys = [str(Path(args.dataset) / key) for key in keys]  # making list of videos with path
 
     extra_keys = []
     for extra_dataset_path in args.extra_datasets:
@@ -63,7 +63,7 @@ def main():
         extra_keys += extra_dataset_keys
 
     num_videos = len(keys)
-    num_train = round(num_videos * args.train_ratio)
+    num_train = round(num_videos * args.train_ratio)  # default ratio is 0.8
     num_test = num_videos - num_train
 
     if args.method == 'random':

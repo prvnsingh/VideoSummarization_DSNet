@@ -1,14 +1,12 @@
 import logging
 from pathlib import Path
 
-from anchor_based.train import train as train_anchor_based
 from anchor_free.train import train as train_anchor_free
 from helpers import init_helper, data_helper
 
 logger = logging.getLogger()
 
 TRAINER = {
-    'anchor-based': train_anchor_based,
     'anchor-free': train_anchor_free
 }
 
