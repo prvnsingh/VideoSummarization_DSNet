@@ -1,0 +1,34 @@
+anchor_scales:
+- 4
+- 8
+- 16
+- 32
+base_model: linear
+ckpt_path: null
+cls_loss: focal
+device: cpu
+incomplete_iou_thresh: 0.3
+incomplete_sample_ratio: 1.0
+lambda_ctr: 1.0
+lambda_reg: 1.0
+log_file: log.txt
+lr: 5.0e-05
+max_epoch: 300
+model: anchor-free
+model_dir: ../models/ab_basic
+neg_iou_thresh: 0.0
+neg_sample_ratio: 2.0
+nms_thresh: 0.5
+num_feature: 1024
+num_head: 8
+num_hidden: 128
+pos_iou_thresh: 0.6
+reg_loss: soft-iou
+sample_rate: 15
+save_path: null
+seed: 12345
+source: null
+splits:
+- ../splits/tvsum.yml
+- ../splits/summe.yml
+weight_decay: 1.0e-05

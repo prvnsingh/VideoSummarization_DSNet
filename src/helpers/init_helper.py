@@ -36,7 +36,7 @@ def get_parser() -> argparse.ArgumentParser:
                         choices=('anchor-based', 'anchor-free'))
 
     # training & evaluation
-    parser.add_argument('--device', type=str, default='cuda',
+    parser.add_argument('--device', type=str, default='cpu',
                         choices=('cuda', 'cpu'))
     parser.add_argument('--seed', type=int, default=12345)
     parser.add_argument('--splits', type=str, nargs='+', default=[])
@@ -55,7 +55,7 @@ def get_parser() -> argparse.ArgumentParser:
     parser.add_argument('--save-path', type=str, default=None)
 
     # common model config
-    parser.add_argument('--base-model', type=str, default='attention',
+    parser.add_argument('--base-model', type=str, default='linear',
                         choices=['attention', 'lstm', 'linear', 'bilstm',
                                  'gcn'])
     parser.add_argument('--num-head', type=int, default=8)
@@ -76,7 +76,7 @@ def get_parser() -> argparse.ArgumentParser:
     parser.add_argument('--cls-loss', type=str, default='focal',
                         choices=['focal', 'cross-entropy'])
     parser.add_argument('--reg-loss', type=str, default='soft-iou',
-                        choices=['soft-iou', 'smooth-l1'])
+                         choices=['soft-iou', 'smooth-l1'])
 
     return parser
 
